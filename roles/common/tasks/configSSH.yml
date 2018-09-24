@@ -1,0 +1,4 @@
+---
+- name: Generate RSA ssh key
+  command: "ssh-keygen -q -t rsa -f /home/{{ PI_USER }}/.ssh/id_rsa -N '' "
+  creates: "/home/{{ PI_USER }}/.ssh/id_rsa"

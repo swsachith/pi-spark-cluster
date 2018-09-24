@@ -1,0 +1,7 @@
+---
+#- import_tasks: installPackages.yml
+#- import_tasks: installJava8.yml
+#- import_tasks: configSSH.yml
+#- import_tasks: installSpark.yml
+- import_tasks: configureSpark.yml
+

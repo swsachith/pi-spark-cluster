@@ -1,0 +1,11 @@
+[pi-master]
+master ansible_host=149.160.160.221
+
+[pi-slaves]
+slave01 ansible_host=149.160.160.222
+
+
+# If you are provisioning the same machine that you are running Ansible on, 
+# uncomment the following line and comment out the rest. 
+
+#localhost ansible_connection=local

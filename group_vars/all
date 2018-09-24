@@ -1,0 +1,14 @@
+# Variables that are visible from all roles
+
+# PI configs
+PI_USER: sachith
+
+# Spark Config
+SPARK_DOWNLOAD_URL: http://www-us.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
+SPARK_HOME: /home/{{ PI_USER }}/spark
+
+# Other configs
+TEMP_WORK_DIR: /home/{{ PI_USER }}/temp
+
+# JAVA configs
+JAVA_HOME: /usr/lib/jvm/java-8-oracle

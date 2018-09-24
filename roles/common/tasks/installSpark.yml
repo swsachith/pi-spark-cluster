@@ -1,0 +1,25 @@
+---
+- name: Create temp directory
+  file: path="{{ TEMP_WORK_DIR }}" state=directory
+
+- name: Download Spark
+  get_url:
+    url: "{{ SPARK_DOWNLOAD_URL }}"
+    dest: "{{ TEMP_WORK_DIR }}"
+    mode: 0644
+    owner: "{{ PI_USER }}"
+
+- name: Find Spark package
+  find: paths="{{ TEMP_WORK_DIR }}" patterns="spark-*.tgz"
+  register: spark_files
+
+- name: "Extract spark into {{ SPARK_HOME }}"
+  become: true
+  unarchive: 
+    owner: "{{ PI_USER }}"
+    src: "{{ item.path }}" 
+    dest: "{{ SPARK_HOME }}" 
+    remote_src: yes 
+    extra_opts: [--strip-components=1]
+  with_items: 
+    "{{ spark_files.files }}"
