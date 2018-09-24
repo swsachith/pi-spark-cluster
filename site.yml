@@ -1,6 +1,5 @@
 ---
 - name: Raspberry Pi Spark Cluster Automation
   hosts: pi-master
-
   roles:
     - common

@@ -6,6 +6,7 @@ PI_USER: sachith
 # Spark Config
 SPARK_DOWNLOAD_URL: http://www-us.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
 SPARK_HOME: /home/{{ PI_USER }}/spark
+SPARK_WORKER_CORES: 1
 
 # Other configs
 TEMP_WORK_DIR: /home/{{ PI_USER }}/temp

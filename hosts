@@ -1,9 +1,8 @@
 [pi-master]
-master ansible_host=149.160.160.221
+master ansible_host=149.160.169.32
 
 [pi-slaves]
-slave01 ansible_host=149.160.160.222
-
+slave01 ansible_host=149.160.160.221
 
 # If you are provisioning the same machine that you are running Ansible on, 
 # uncomment the following line and comment out the rest. 
