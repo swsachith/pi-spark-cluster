@@ -2,6 +2,7 @@
 
 # PI configs
 PI_USER: sachith
+PI_USER_HOME: /home/{{ PI_USER }}
 
 # Spark Config
 SPARK_DOWNLOAD_URL: http://www-us.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
@@ -10,6 +11,7 @@ SPARK_WORKER_CORES: 1
 
 # Other configs
 TEMP_WORK_DIR: /home/{{ PI_USER }}/temp
+TEMP_KEY_STORAGE: /tmp/keys
 
 # JAVA configs
 JAVA_HOME: /usr/lib/jvm/java-8-oracle

@@ -2,6 +2,9 @@
 - name: Create temp directory
   file: path="{{ TEMP_WORK_DIR }}" state=directory
 
+- name: Create Spark_Home directory
+  file: path="{{ SPARK_HOME }}" state=directory
+
 - name: Download Spark
   get_url:
     url: "{{ SPARK_DOWNLOAD_URL }}"

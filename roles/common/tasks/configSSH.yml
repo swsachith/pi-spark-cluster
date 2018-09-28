@@ -1,4 +1,10 @@
 ---
 - name: Generate RSA ssh key
-  command: "ssh-keygen -q -t rsa -f /home/{{ PI_USER }}/.ssh/id_rsa -N '' "
-  creates: "/home/{{ PI_USER }}/.ssh/id_rsa"
+  command: "ssh-keygen -q -t rsa -f /home/{{ PI_USER }}/.ssh/id_rsa -N '' arg1"
+  args:
+    creates: "/home/{{ PI_USER }}/.ssh/id_rsa"
+
+- name: Copy the ssh pub keys to local
+  fetch:
+    src: "/home/{{ PI_USER }}/.ssh/id_rsa.pub"
+    dest: "{{ TEMP_KEY_STORAGE }}"

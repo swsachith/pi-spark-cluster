@@ -17,3 +17,18 @@
   template:
     src: ./templates/spark-env.sh.j2
     dest: "{{ SPARK_HOME }}/conf/spark-env.sh"
+
+- name: Export JAVA_HOME
+  lineinfile:
+        path: "/home/{{ PI_USER }}/.bashrc"
+        line: "export JAVA_HOME={{ JAVA_HOME }}"
+
+- name: Export SPARK_HOME
+  lineinfile:
+        path: "/home/{{ PI_USER }}/.bashrc"
+        line: "export SPARK_HOME={{ SPARK_HOME }}"
+
+- name: Add Spark bin to path
+  lineinfile:
+        path: "/home/{{ PI_USER }}/.bashrc"
+        line: "export PATH=$PATH:{{ SPARK_HOME }}/bin"

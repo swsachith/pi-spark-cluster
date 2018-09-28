@@ -1,0 +1,23 @@
+---
+- name: Ensure the authorized_keys file is empty
+  copy:
+    content: ""
+    dest: "{{ TEMP_KEY_STORAGE }}/authorized_keys"
+    force: yes
+  delegate_to: localhost
+  when: "'pi-master' in group_names"
+
+
+- name: Concat all the keys locally
+  shell: "cat {{ TEMP_KEY_STORAGE }}/{{ item }}/{{ PI_USER_HOME }}/.ssh/id_rsa.pub >> {{ TEMP_KEY_STORAGE }}/authorized_keys"
+  delegate_to: localhost
+  with_items: "{{ groups['all'] }}"
+  when: "'pi-master' in group_names"
+
+- name: Copy the authorized_keys file to all hosts
+  copy:
+    src: "{{ TEMP_KEY_STORAGE }}/authorized_keys"
+    dest: "{{ PI_USER_HOME }}/.ssh/authorized_keys"
+
+
+
